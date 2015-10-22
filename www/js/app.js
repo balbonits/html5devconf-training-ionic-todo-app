@@ -17,3 +17,12 @@ angular.module('starter', ['ionic'])
     }
   });
 })
+
+.controller('ListCtrl', ['$scope', function($scope){
+  $scope.items = [];
+
+  $scope.addItem = function(){
+    var name = prompt('What dp you need to do>');
+    if(name) $scope.items.push({'name':name});
+  }
+}])

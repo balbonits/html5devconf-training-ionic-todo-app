@@ -15,6 +15,13 @@
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
+    <!-- Firebase/AngularFire scripts (for sample cloud storage) -->
+    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
+
+    <!-- ngCordova script (Cordova for Angular) -->
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
@@ -32,7 +39,9 @@
         <ion-list>
           <ion-item ng-repeat="item in items" ng-class="{done: item.status == 'done'}">
             {{item.name}}
-            <ion-option-button class="button-energized button-icon ion-close-circled" ng-click="removeItem(item)"></ion-option-button>
+            <ion-option-button class="button-energized" ng-click="markItem(item)">
+              <span class="icon ion-checkmark"></span>
+            </ion-option-button>
           </ion-item>
         </ion-list>
       </ion-content>

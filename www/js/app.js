@@ -18,11 +18,20 @@ angular.module('starter', ['ionic'])
   });
 })
 
-.controller('ListCtrl', ['$scope', function($scope){
+.controller('ListCtrl', ['$scope','$ionicListDelegate', function($scope,$ionicListDelegate){
   $scope.items = [];
 
-  $scope.addItem = function(){
+  // add new item button
+  $scope.addNew = function(){
     var name = prompt('What dp you need to do>');
     if(name) $scope.items.push({'name':name});
+  }
+
+  //remove selected item button
+  $scope.removeItem = function(item){
+    $scope.item = item;
+    $scope.item['status'] = 'done';
+    $ionicListDelegate.closeOptionButtons();
+    $scope.item = null;
   }
 }])
